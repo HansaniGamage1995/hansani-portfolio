@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hansani Wathsala | Senior Software Engineer</title>
+    <meta
+      name="description"
+      content="Portfolio of Hansani Wathsala — Senior Software Engineer specializing in Laravel, Node.js, Next.js, AWS, Django, React, and scalable full-stack systems."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #070b17;
+        --surface: rgba(255, 255, 255, 0.07);
+        --border: rgba(255, 255, 255, 0.14);
+        --text: #f5f7ff;
+        --muted: #b8c2ec;
+        --accent: #7b8dff;
+        --accent-2: #58d9ff;
+        --accent-3: #9c7cff;
+        --success: #9ff5c6;
+        --shadow: 0 22px 50px rgba(0, 0, 0, 0.3);
+        --radius: 28px;
+        --max: 1180px;
+      }
+
+      * {
+        box-sizing: border-box;
+        min-width: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 10% 10%, rgba(123, 141, 255, 0.28), transparent 22%),
+          radial-gradient(circle at 85% 15%, rgba(88, 217, 255, 0.22), transparent 18%),
+          radial-gradient(circle at 70% 70%, rgba(156, 124, 255, 0.18), transparent 22%),
+          linear-gradient(180deg, #060914 0%, #0a1020 45%, #081120 100%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      pre {
+        margin: 0;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+
+      .container {
+        width: min(var(--max), calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(20px);
+        background: rgba(8, 12, 26, 0.72);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .nav-inner {
+        min-height: 78px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 12px 0;
+      }
+
+      .brand {
+        font-size: 1.05rem;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        flex-shrink: 0;
+      }
+
+      .brand span {
+        color: var(--accent-2);
+      }
+
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 12px 18px;
+        color: var(--muted);
+        font-size: 0.96rem;
+      }
+
+      .nav-links a:hover {
+        color: white;
+      }
+
+      .hero {
+        padding: 32px 0 24px;
+      }
+
+      .hero-shell {
+        position: relative;
+        overflow: hidden;
+        border-radius: 36px;
+        border: 1px solid var(--border);
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04)),
+          linear-gradient(160deg, rgba(123, 141, 255, 0.08), rgba(88, 217, 255, 0.06));
+        box-shadow: var(--shadow);
+      }
+
+      .hero-shell::before,
+      .hero-shell::after {
+        content: "";
+        position: absolute;
+        border-radius: 999px;
+        filter: blur(16px);
+        opacity: 0.7;
+      }
+
+      .hero-shell::before {
+        width: 240px;
+        height: 240px;
+        background: rgba(123, 141, 255, 0.18);
+        top: -70px;
+        left: -40px;
+      }
+
+      .hero-shell::after {
+        width: 280px;
+        height: 280px;
+        background: rgba(88, 217, 255, 0.14);
+        right: -80px;
+        bottom: -90px;
+      }
+
+      .hero-grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+        gap: 26px;
+        padding: 38px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 10px 16px;
+        color: #dbe3ff;
+        font-size: 0.94rem;
+        margin-bottom: 18px;
+        max-width: 100%;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--success);
+        box-shadow: 0 0 14px var(--success);
+        flex-shrink: 0;
+      }
+
+      h1 {
+        margin: 0 0 18px;
+        font-size: clamp(2.2rem, 5vw, 5rem);
+        line-height: 1.02;
+        letter-spacing: -0.04em;
+      }
+
+      h1 .accent {
+        background: linear-gradient(135deg, var(--accent-2), #ffffff 45%, #bdaeff 85%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .lead {
+        max-width: 720px;
+        margin: 0;
+        font-size: 1.04rem;
+        line-height: 1.8;
+        color: var(--muted);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin: 28px 0 18px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 22px;
+        border-radius: 16px;
+        font-weight: 700;
+        transition: 0.2s ease;
+        text-align: center;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #08111d;
+      }
+
+      .btn-secondary {
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .quick-points,
+      .skill-list,
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .quick-points {
+        margin-top: 12px;
+      }
+
+      .pill {
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #e5eaff;
+        font-size: 0.92rem;
+      }
+
+      .dev-panel {
+        display: grid;
+        gap: 16px;
+      }
+
+      .dev-bg,
+      .caption-card,
+      .card,
+      .stat,
+      .contact-item {
+        border: 1px solid var(--border);
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+
+      .dev-bg {
+        border-radius: 26px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .dev-bg::before {
+        content: "";
+        display: block;
+        height: 44px;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .dev-bg::after {
+        content: "●  ●  ●";
+        position: absolute;
+        top: 12px;
+        left: 16px;
+        color: rgba(255, 255, 255, 0.45);
+        letter-spacing: 3px;
+        font-size: 0.9rem;
+      }
+
+      .code-block {
+        padding: 18px;
+        overflow: auto;
+        font-size: 0.92rem;
+        line-height: 1.7;
+        color: #dff5ff;
+        background:
+          radial-gradient(circle at top right, rgba(88, 217, 255, 0.1), transparent 24%),
+          linear-gradient(180deg, rgba(10, 18, 36, 0.96), rgba(10, 16, 30, 0.98));
+      }
+
+      .caption-card {
+        width: 100%;
+        max-width: 420px;
+        border-radius: 22px;
+        padding: 18px;
+      }
+
+      .caption-card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+        font-size: 0.96rem;
+      }
+
+      section {
+        padding: 28px 0;
+      }
+
+      .section-head {
+        margin-bottom: 24px;
+      }
+
+      .section-title {
+        margin: 0 0 10px;
+        font-size: clamp(1.65rem, 3vw, 2.6rem);
+      }
+
+      .section-copy {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.8;
+        max-width: 760px;
+      }
+
+      .grid-2,
+      .grid-3 {
+        display: grid;
+        gap: 18px;
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .card {
+        border-radius: 24px;
+        padding: 24px;
+      }
+
+      .card h3 {
+        margin: 0 0 10px;
+        font-size: 1.18rem;
+      }
+
+      .card p,
+      .card li {
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .skill-list,
+      .project-tags {
+        margin-top: 14px;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 18px;
+      }
+
+      .timeline-item {
+        border-radius: 24px;
+        padding: 24px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(180deg, var(--accent-2), var(--accent-3));
+      }
+
+      .timeline-item small {
+        color: #d6deff;
+        font-weight: 700;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+
+      .stats-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-top: 20px;
+      }
+
+      .stat {
+        border-radius: 22px;
+        padding: 20px;
+      }
+
+      .stat strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.15rem;
+      }
+
+      .cta {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18px;
+        align-items: center;
+      }
+
+      .contact-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .contact-item {
+        padding: 14px 16px;
+        border-radius: 16px;
+        color: #dbe2ff;
+      }
+
+      .footer {
+        padding: 36px 0 70px;
+        color: var(--muted);
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap;
+        padding-top: 20px;
+      }
+
+      @media (max-width: 1100px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .caption-card {
+          max-width: 100%;
+        }
+      }
+
+      @media (max-width: 980px) {
+        .grid-2,
+        .grid-3,
+        .cta,
+        .stats-row {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-grid {
+          padding: 24px;
+        }
+
+        .nav-inner {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .nav-links {
+          width: 100%;
+          justify-content: flex-start;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          width: min(var(--max), calc(100% - 24px));
+        }
+
+        .hero {
+          padding: 20px 0 18px;
+        }
+
+        .hero-shell {
+          border-radius: 26px;
+        }
+
+        .hero-grid {
+          gap: 22px;
+          padding: 20px;
+        }
+
+        h1 {
+          font-size: clamp(1.9rem, 8vw, 3rem);
+          line-height: 1.08;
+        }
+
+        .lead,
+        .section-copy,
+        .card p,
+        .timeline-item p {
+          font-size: 0.98rem;
+          line-height: 1.75;
+        }
+
+        .actions {
+          gap: 12px;
+        }
+
+        .btn {
+          width: 100%;
+        }
+
+        .card,
+        .timeline-item,
+        .stat,
+        .caption-card,
+        .contact-item {
+          padding: 18px;
+          border-radius: 20px;
+        }
+
+        .code-block {
+          font-size: 0.85rem;
+          padding: 16px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          width: min(var(--max), calc(100% - 20px));
+        }
+
+        .nav-inner {
+          min-height: auto;
+          padding: 10px 0 12px;
+        }
+
+        .brand {
+          font-size: 1rem;
+        }
+
+        .nav-links {
+          gap: 10px 14px;
+          font-size: 0.9rem;
+        }
+
+        .eyebrow {
+          font-size: 0.82rem;
+          padding: 9px 12px;
+        }
+
+        h1 {
+          font-size: clamp(1.7rem, 9vw, 2.3rem);
+        }
+
+        .lead {
+          font-size: 0.95rem;
+        }
+
+        .pill {
+          font-size: 0.84rem;
+          padding: 9px 12px;
+        }
+
+        .section-title {
+          font-size: 1.5rem;
+        }
+
+        .footer {
+          padding-bottom: 42px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="#top" class="brand">Hansani<span> Wathsala</span></a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#journey">Journey</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero" id="top">
+      <div class="container">
+        <div class="hero-shell">
+          <div class="hero-grid">
+            <div>
+              <div class="eyebrow">Open to full-stack web, mobile, and cloud-focused opportunities</div>
+              <h1>
+                Hi, I’m <span class="accent">Hansani Wathsala</span><br />
+                a Senior Software Engineer building scalable products that solve real business problems.
+              </h1>
+              <p class="lead">
+                I’m a senior full stack engineer with 5+ years of experience designing, developing, and deploying scalable web applications. My recent work spans ERP and CMS platforms, RESTful APIs, AWS cloud infrastructure, serverless reporting, and high performance product delivery using Laravel, Node.js, Next.js, React, Django, and modern engineering practices.
+              </p>
+              <div class="actions">
+                <a class="btn btn-primary" href="#projects">See my work</a>
+                <a class="btn btn-secondary" href="#contact">Contact me</a>
+              </div>
+              <div class="quick-points">
+                <span class="pill">Next.js</span>
+                <span class="pill">Django REST</span>
+                <span class="pill">Laravel</span>
+                <span class="pill">AWS</span>
+                <span class="pill">Node.js</span>
+                <span class="pill">ERP &amp; CMS</span>
+              </div>
+            </div>
+
+            <div class="dev-panel">
+              <div class="dev-bg">
+                <pre class="code-block">
+const developer = {
+  name: "Hansani Wathsala",
+  role: "Senior Software Engineer",
+  stack: [
+    "Laravel",
+    "Node.js",
+    "Next.js",
+    "React",
+    "Django",
+    "AWS",
+    "Docker"
+  ],
+  interests: [
+    "Scalable Architecture",
+    "Cloud Systems",
+    "REST APIs",
+    "Clean Code"
+  ],
+  mission: "Build reliable systems that solve real business problems"
+};
+
+function buildProduct(idea) {
+  return architect(idea)
+    .design()
+    .develop()
+    .deploy("AWS")
+    .scale();
+}
+                </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat">
+            <strong>Frontend</strong>
+            Next.js, React, Vue.js, TypeScript, Tailwind, Redux
+          </div>
+          <div class="stat">
+            <strong>Backend</strong>
+            Laravel, Node.js, Django, Spring, Hibernate, REST APIs
+          </div>
+          <div class="stat">
+            <strong>Architecture</strong>
+            SOLID, TDD, MVC, Repository Pattern, scalable system design
+          </div>
+          <div class="stat">
+            <strong>Cloud</strong>
+            AWS ECS, RDS, S3, Lambda, CloudWatch, CI/CD, Docker
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="about">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-copy">
+              I’m a senior software engineer focused on delivering robust, scalable systems across the full stack. At CreatIT Solutions, I’ve led end to end development for ERP and CMS platforms, built well documented REST APIs, improved cloud efficiency, and supported high traffic applications with serverless reporting. I enjoy combining clean architecture, problem solving, and teamwork to create software that performs well in real production environments.
+            </p>
+          </div>
+          <div class="grid-3">
+            <article class="card">
+              <h3>Engineering with impact</h3>
+              <p>I care about performance, maintainability, and measurable outcomes from cost optimization to fewer bugs in production.</p>
+            </article>
+            <article class="card">
+              <h3>Full stack delivery</h3>
+              <p>I work across frontend, backend, APIs, databases, cloud services, reporting flows, and deployment pipelines.</p>
+            </article>
+            <article class="card">
+              <h3>Leadership and mentoring</h3>
+              <p>I mentor junior developers, promote clean code and review culture, and help teams work better through Agile practices.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">Core Skills</h2>
+          </div>
+          <div class="grid-2">
+            <article class="card">
+              <h3>Frontend Engineering</h3>
+              <div class="skill-list">
+                <span class="pill">React</span>
+                <span class="pill">Next.js</span>
+                <span class="pill">Vue.js</span>
+                <span class="pill">TypeScript</span>
+                <span class="pill">JavaScript</span>
+                <span class="pill">Tailwind CSS</span>
+                <span class="pill">Redux</span>
+                <span class="pill">HTML/CSS</span>
+              </div>
+            </article>
+            <article class="card">
+              <h3>Backend &amp; APIs</h3>
+              <div class="skill-list">
+                <span class="pill">Laravel</span>
+                <span class="pill">Node.js</span>
+                <span class="pill">Django</span>
+                <span class="pill">Spring</span>
+                <span class="pill">Hibernate</span>
+                <span class="pill">Python</span>
+                <span class="pill">Java</span>
+                <span class="pill">REST APIs</span>
+              </div>
+            </article>
+            <article class="card">
+              <h3>Database, Design &amp; Process</h3>
+              <div class="skill-list">
+                <span class="pill">MySQL</span>
+                <span class="pill">Drizzle</span>
+                <span class="pill">MVC</span>
+                <span class="pill">Repository Pattern</span>
+                <span class="pill">SOLID</span>
+                <span class="pill">TDD</span>
+                <span class="pill">Jira</span>
+                <span class="pill">Agile/Scrum</span>
+              </div>
+            </article>
+            <article class="card">
+              <h3>Cloud, DevOps &amp; Delivery</h3>
+              <div class="skill-list">
+                <span class="pill">AWS Lambda</span>
+                <span class="pill">AWS S3</span>
+                <span class="pill">AWS ECS</span>
+                <span class="pill">AWS RDS</span>
+                <span class="pill">CloudWatch</span>
+                <span class="pill">CI/CD</span>
+                <span class="pill">GitHub</span>
+                <span class="pill">Bitbucket</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">Featured Experience</h2>
+          </div>
+          <div class="grid-2">
+            <article class="card">
+              <h3>Senior Software Engineer | CreatIT Solutions</h3>
+              <p>
+                Led end to end development of ERP and CMS platforms using Laravel, Node.js, and Next.js in an Agile environment. Architected scalable RESTful APIs for core product functionality and specialized data processing modules while applying SOLID principles and TDD for long term maintainability.
+              </p>
+              <div class="project-tags">
+                <span class="pill">Laravel</span>
+                <span class="pill">Node.js</span>
+                <span class="pill">Next.js</span>
+                <span class="pill">REST APIs</span>
+                <span class="pill">TDD</span>
+              </div>
+            </article>
+            <article class="card">
+              <h3>AWS Cloud &amp; Serverless Impact</h3>
+              <p>
+                Managed AWS infrastructure across ECS, RDS, S3, and Lambda, helping reduce operational costs by 20% through automated scaling and monitoring. Also delivered on demand report and PDF generation for high traffic applications through serverless functions.
+              </p>
+              <div class="project-tags">
+                <span class="pill">AWS ECS</span>
+                <span class="pill">RDS</span>
+                <span class="pill">S3</span>
+                <span class="pill">Lambda</span>
+                <span class="pill">Cloud Optimization</span>
+              </div>
+            </article>
+            <article class="card">
+              <h3>Leadership &amp; Engineering Quality</h3>
+              <p>
+                Mentored 3+ junior developers on design patterns, clean code, and code reviews, contributing to a 40% reduction in production bugs. Helped strengthen Agile ceremonies, backlog management, sprint predictability, and knowledge sharing across the team.
+              </p>
+              <div class="project-tags">
+                <span class="pill">Mentoring</span>
+                <span class="pill">Code Review</span>
+                <span class="pill">Agile</span>
+                <span class="pill">Jira</span>
+                <span class="pill">Team Process</span>
+              </div>
+            </article>
+            <article class="card">
+              <h3>Software Engineer Trainee | PwC Lanka</h3>
+              <p>
+                Contributed to three government automation systems for visa approvals, heritage management, and export permits using Java, Spring Framework, and MySQL. Improved manual processing time by 30–50%, built interactive dashboards, and resolved 15+ critical bugs in legacy systems.
+              </p>
+              <div class="project-tags">
+                <span class="pill">Java</span>
+                <span class="pill">Spring</span>
+                <span class="pill">MySQL</span>
+                <span class="pill">Dashboards</span>
+                <span class="pill">Legacy Systems</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="journey">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">Career Journey</h2>
+          </div>
+          <div class="timeline">
+            <article class="timeline-item">
+              <small>2018 - 2019</small>
+              <h3>PwC Lanka | Government and enterprise software</h3>
+              <p>Built and maintained government automation systems, interactive dashboards, and legacy improvements using Java, Spring Framework, JavaScript, jQuery, AJAX, and MySQL.</p>
+            </article>
+            <article class="timeline-item">
+              <small>2020 - Present</small>
+              <h3>CreatIT Solutions | Full-stack product engineering</h3>
+              <p>Led development of ERP and CMS platforms while delivering scalable APIs, strong engineering practices, and real production value with Laravel, Node.js, and Next.js.</p>
+            </article>
+            <article class="timeline-item">
+              <small>Cloud &amp; DevOps</small>
+              <h3>AWS infrastructure, reporting, and scaling</h3>
+              <p>Managed AWS services and serverless reporting workflows to improve performance, support scale, and lower operational cost.</p>
+            </article>
+            <article class="timeline-item">
+              <small>Leadership</small>
+              <h3>Mentoring and engineering process improvement</h3>
+              <p>Supported junior developers, standardized code reviews, and improved sprint rhythm, collaboration, and predictability in Agile teams.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container">
+          <div class="card cta">
+            <div>
+              <h2 class="section-title">Let’s connect</h2>
+              <div class="actions">
+                <a class="btn btn-primary" href="mailto:ig.hansaniwathsala@gmail.com">Email me</a>
+                <a class="btn btn-secondary" href="#top">Back to top</a>
+              </div>
+            </div>
+            <div class="contact-list">
+              <div class="contact-item">Email: ig.hansaniwathsala@gmail.com</div>
+              <div class="contact-item">Phone: +94 71 237 1342</div>
+              <div class="contact-item">Location: Malabe, Sri Lanka</div>
+              <div class="contact-item"><a href="https://www.linkedin.com/in/hansaniw" target="_blank" rel="noopener noreferrer">LinkedIn: www.linkedin.com/in/hansaniw</a></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>© <span id="year"></span> Hansani Wathsala | All Right Reserved</div>
+        <div>Senior Software Engineer • Full-Stack • Cloud • Product Delivery</div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
